@@ -42,7 +42,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t count=0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -98,8 +98,8 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  count++;
-	  HAL_Delay(1000);
+	 
+	  
 	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5,GPIO_PIN_SET); //BLUE ON
 	  HAL_Delay(500);
 	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0,GPIO_PIN_SET); //GREEN ON
@@ -111,7 +111,7 @@ int main(void)
 	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0,GPIO_PIN_RESET); //GREEN OFF
 	  HAL_Delay(500);
 	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1,GPIO_PIN_RESET); //RED OFF
-	 // */
+	 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
