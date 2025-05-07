@@ -99,19 +99,8 @@ int main(void)
   while (1)
   {
 	  count++;
-	  HAL_Delay(1000);
-	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5,GPIO_PIN_SET); //BLUE ON
 	  HAL_Delay(500);
-	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0,GPIO_PIN_SET); //GREEN ON
-	  HAL_Delay(500);
-	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1,GPIO_PIN_SET); //RED ON
-	  HAL_Delay(500);
-	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_5,GPIO_PIN_RESET); //BLUE OFF
-	  HAL_Delay(500);
-	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0,GPIO_PIN_RESET); //GREEN OFF
-	  HAL_Delay(500);
-	  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1,GPIO_PIN_RESET); //RED OFF
-	 // */
+	  
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
