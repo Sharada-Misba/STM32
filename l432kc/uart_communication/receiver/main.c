@@ -107,10 +107,7 @@ int main(void)
 	     } else if (receivedData[0] == '1'){
 	       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, 1);
 	      // HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, 0);
-	     } //else if (receivedData[0] == '2'){
-	      // HAL_GPIO_WritePin(GPIOA, GPIO_PIN_11, 0);
-	      // HAL_GPIO_WritePin(GPIOB, GPIO_PIN_1, 1);
-	    // }
+	     }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
