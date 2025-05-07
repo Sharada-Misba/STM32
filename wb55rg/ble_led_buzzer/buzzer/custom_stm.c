@@ -78,7 +78,8 @@ static CustomContext_t CustomContext;
  */
 
 /* USER CODE BEGIN PV */
-
+#define BUZZ_PIN GPIO_PIN_10
+#define BUZZ_PORT GPIOC
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -147,9 +148,10 @@ static SVCCTL_EvtAckStatus_t Custom_STM_Event_Handler(void *Event)
           if (attribute_modified->Attr_Handle == (CustomContext.CustomNoti_CharHdle + CHARACTERISTIC_DESCRIPTOR_ATTRIBUTE_OFFSET))
           {
             return_value = SVCCTL_EvtAckFlowEnable;
-            /* USER CODE BEGIN CUSTOM_STM_Service_1_Char_2 */
-
-            /* USER CODE END CUSTOM_STM_Service_1_Char_2 */
+           /* USER CODE BEGIN CUSTOM_STM_Service_1_Char_1_ACI_GATT_ATTRIBUTE_MODIFIED_VSEVT_CODE */
+            HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+	    HAL_GPIO_TogglePin(BUZZ_PORT,BUZZ_PIN);
+            /* USER CODE END CUSTOM_STM_Service_1_Char_1_ACI_GATT_ATTRIBUTE_MODIFIED_VSEVT_CODE */
             switch (attribute_modified->Attr_Data[0])
             {
               /* USER CODE BEGIN CUSTOM_STM_Service_1_Char_2_attribute_modified */
@@ -192,7 +194,7 @@ static SVCCTL_EvtAckStatus_t Custom_STM_Event_Handler(void *Event)
           {
             return_value = SVCCTL_EvtAckFlowEnable;
             /* USER CODE BEGIN CUSTOM_STM_Service_1_Char_1_ACI_GATT_ATTRIBUTE_MODIFIED_VSEVT_CODE */
-            HAL_GPIO_TogglePin(LD2_GPIO_Port,LD2_Pin);
+            
             /* USER CODE END CUSTOM_STM_Service_1_Char_1_ACI_GATT_ATTRIBUTE_MODIFIED_VSEVT_CODE */
           } /* if (attribute_modified->Attr_Handle == (CustomContext.CustomMydevc_CharHdle + CHARACTERISTIC_VALUE_ATTRIBUTE_OFFSET))*/
           /* USER CODE BEGIN EVT_BLUE_GATT_ATTRIBUTE_MODIFIED_END */
