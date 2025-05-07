@@ -78,7 +78,7 @@ void mpu6050_read()
 
 	//int16_t x_mag;
 
-	int16_t temp;
+	//int16_t temp;
 
 	HAL_I2C_Mem_Read(&hi2c1, (DEVICE_ADDRESS <<1) + 1, REG_DATAX, 1, datax, 2, 100);
 	x_acc=((int16_t)datax[0] << 8) + datax[1];
@@ -99,15 +99,9 @@ void mpu6050_read()
 	HAL_I2C_Mem_Read(&hi2c1, (DEVICE_ADDRESS <<1) + 1, REG_DATGZ, 1, datgz, 2, 100);
 	z_gyr=((int16_t)datgz[0] << 8) + datgz[1];
 	printf("z_gyr: %d \n",z_gyr);
-/*
-	HAL_I2C_Mem_Read(&hi2c1, (DEVICE_ADDRESS <<1) + 1, REG_DATMX, 1, datmx, 2, 100);
-	x_mag=((int16_t)datmx[1] << 8) + datmx[0];
-	printf("x_mag: %d  	 ",x_mag);
-*/
 
-	HAL_I2C_Mem_Read(&hi2c1, (DEVICE_ADDRESS <<1) + 1, REG_DATT, 1, datt, 2, 100);
-	temp=(((int16_t)datt[0] << 8) + datt[1])/340 + 36.53;
-	printf("temp: %d  	\n\n ",temp);
+
+
 }
 
 
