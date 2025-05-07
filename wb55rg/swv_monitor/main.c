@@ -19,7 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include <stdio.h>
-#include "imu.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -61,7 +61,7 @@ static void MX_I2C1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t receivedData[1];
+
 /* USER CODE END 0 */
 
 /**
@@ -99,7 +99,7 @@ int main(void)
   MX_USART1_UART_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  imu_init();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -107,29 +107,13 @@ int main(void)
   while (1)
   {
 
-	         HAL_UART_Receive(&huart1, receivedData, 1, 100);
-	  	     if (receivedData[0] == '0'){
-	  	       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 0);
-	  	       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, 0);
-	  	       printf("Distance > 50 === No LED , No BUZZER\n");
-	  	     } else if (receivedData[0] == '1'){
-	  	       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);
-	  	       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, 0);
-	  	       printf("Distance < 10 === LED..\n");
-	  	     } else if (receivedData[0] == '2'){
-	  	       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 0);
-	  	       HAL_GPIO_WritePin(GPIOA, GPIO_PIN_6, 1);
-	  	       printf("10 < Distance < 50 === BUZZER..\n");
-	  	     }
-	  	     printf("ReceivedData = %d\n" , receivedData[0] );
+	        
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
 
-	  	  printf("..\n");
-	  	  imu_read();
-		  printf("..\n");
-		  HAL_Delay(200);
+	  	  printf("hi..\n");
+	  	  HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
