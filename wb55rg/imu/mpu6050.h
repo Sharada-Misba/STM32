@@ -4,7 +4,7 @@
 
 
 #define DEVICE_ADDRESS 0x68
-#define BMP_ADDRESS 0x76
+
 
 #define FS_GYRO_250 0
 #define FS_GYRO_500 8
@@ -25,7 +25,7 @@
 #define REG_DATAY 61
 #define REG_DATAZ 63
 
-#define REG_DATT 65
+
 
 #define REG_DATGX 67
 #define REG_DATGY 69
