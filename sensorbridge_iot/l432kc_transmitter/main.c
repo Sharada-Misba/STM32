@@ -134,20 +134,17 @@ int main(void)
 	      if(Distance > 50)//no buzzer and no led
 	      {
 				charToTransmit[0] = 48;
-				//char not[] = "NOTHING\r\n";// 48 is ascii character for zero
-				//HAL_UART_Transmit(&huart2, (uint8_t*)not, strlen(not), 100);
+				
 	      }
 	      else if(Distance >10 && Distance <50)// only led
 	      {
 				  charToTransmit[0] = 49;
-				  //char led[] = "LED\r\n";
-				 // HAL_UART_Transmit(&huart2, (uint8_t*)led, strlen(led), 100);
+				  
 	      }
 	      else						// only buzzer
 	      {
 	      	      charToTransmit[0] = 50;
-	      	      //char buz[] = "BUZZER\r\n";// 49 is ascii character for one
-	      	      //HAL_UART_Transmit(&huart2, (uint8_t*)buz, strlen(buz), 100);
+	      	      
 	      }
 
 	      HAL_UART_Transmit(&huart1, charToTransmit, 1, 100);
@@ -157,21 +154,8 @@ int main(void)
 
     /* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */ /*
-	  HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_3); // Blink MCU led
-
-
-	 	  	  if(!HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_3))
-	 	  		  {
-	 	  			charToTransmit[0] = 48; // 48 is ascii character for zero
-	 	  		  }
-	 	  	  else if(HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_3))
-	 	  		  {
-	 	  			charToTransmit[0] = 49; // 49 is ascii character for one
-	 	  		  }
-
-	 	  	  HAL_UART_Transmit(&huart1, charToTransmit, 1, 100); // Transmit Data
-	 	  	  HAL_Delay(2000);*/
+    /* USER CODE BEGIN 3 */ 
+	 
   }
   /* USER CODE END 3 */
 }
