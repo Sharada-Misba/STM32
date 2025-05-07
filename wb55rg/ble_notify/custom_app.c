@@ -70,9 +70,6 @@ static Custom_App_Context_t Custom_App_Context;
  */
 
 uint8_t UpdateCharData[512];
-//UpdateCharData[0]=0;
-//uint8_t ch=42;
-uint8_t msg[]="hii";
 uint8_t NotifyCharData[512];
 uint16_t Connection_Handle;
 /* USER CODE BEGIN PV */
@@ -91,7 +88,7 @@ void myTask(void)
 		{
 			UpdateCharData[0]=ch;//^=0X01;
 			Custom_Noti_char_Update_Char();
-			//Custom_STM_App_Update_Char(Custom_STM_Char_Opcode_t CharOpcode, msg)
+			
 		}
 		UTIL_SEQ_SetTask(1<<CFG_TASK_MY_TASK,CFG_SCH_PRIO_0);
 	}
