@@ -11,12 +11,6 @@
 #define FS_GYRO_1000 16
 #define FS_GYRO_2000 24
 
-
-#define FS_MAG_2G 0
-#define FS_MAG_4G 8
-#define FS_MAG_8G 16
-#define FS_MAG_16G 24
-
 #define FS_ACC_2G 0
 #define FS_ACC_4G 8
 #define FS_ACC_8G 16
@@ -36,10 +30,6 @@
 #define REG_DATGX 67
 #define REG_DATGY 69
 #define REG_DATGZ 71
-
-#define REG_DATMX 3
-#define REG_DATMY 5
-#define REG_DATMZ 7
 
 void mpu6050_init();
 void mpu6050_read();
