@@ -399,7 +399,7 @@ tBleStatus Custom_STM_App_Update_Char(Custom_STM_Char_Opcode_t CharOpcode, uint8
   switch (CharOpcode)
   {
 
-    case CUSTOM_STM_MYDEVC_CHAR:
+    case CUSTOM_STM_MY_CHAR:
       ret = aci_gatt_update_char_value(CustomContext.CustomMydevc_SvcHdle,
                                        CustomContext.CustomMydevc_CharHdle,
                                        0, /* charValOffset */
@@ -418,7 +418,7 @@ tBleStatus Custom_STM_App_Update_Char(Custom_STM_Char_Opcode_t CharOpcode, uint8
       /* USER CODE END CUSTOM_STM_App_Update_Service_1_Char_1*/
       break;
 
-    case CUSTOM_STM_NOTI_CHAR:
+    case CUSTOM_STM_MY_NOTI:
       ret = aci_gatt_update_char_value(CustomContext.CustomMydevc_SvcHdle,
                                        CustomContext.CustomNoti_CharHdle,
                                        0, /* charValOffset */
