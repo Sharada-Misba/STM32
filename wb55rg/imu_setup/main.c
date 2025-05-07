@@ -19,7 +19,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include <stdio.h>
-#include "mpu6050.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -95,19 +95,55 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  mpu6050_init();
+HAL_StatusTypeDef rt = HAL_I2C_IsDeviceReady(&hi2c1, (0b1101000 <<1) + 0, 1, 100);
+ 	  if(rt == HAL_OK){
+ 	  	  printf(" Device ready\n");
+ 	  }
+ 	  else
+ 	  {
+ 	  	  printf(" Device not ready\n");
+ 	  }
+ 	  uint8_t temp_data = 8;
+ 	  rt = HAL_I2C_Mem_Write(&hi2c1, (0b1101000 <<1) + 0, 27, 1, &temp_data, 1, 100);
+ 	  if(rt == HAL_OK){
+ 		  printf("Configured gyroscope\n");
+ 	  }
+ 	  else
+ 	  {
+ 		  printf("Configure gyroscope failed\n");
+ 	  }
+ 	  temp_data = 8;
+ 	  rt = HAL_I2C_Mem_Write(&hi2c1, (0b1101000 <<1) + 0, 28, 1, &temp_data, 1, 100);
+ 	  if(rt == HAL_OK){
+ 	  	  printf("Configured accelerometer\n");
+ 	  }
+ 	  else
+ 	  {
+ 	      printf("Configure accelerometer failed\n");
+ 	  }
+ 	  temp_data = 0;
+ 	  	  rt = HAL_I2C_Mem_Write(&hi2c1, (0b1101000 <<1) + 0, 107, 1, &temp_data, 1, 100);
+ 	  	  if(rt == HAL_OK){
+ 	  	  	  printf("Exiting from sleep mode\n");
+ 	  	  }
+ 	  	  else
+ 	  	  {
+ 	  	      printf("Exiting from sleep mode failed\n");
+ 	  	  }
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  mpu6050_read();
+	 
 	  printf("..\n");
+	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  HAL_Delay(1000);
+	  
   }
   /* USER CODE END 3 */
 }
