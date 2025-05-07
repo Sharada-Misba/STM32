@@ -114,50 +114,9 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	      HAL_GPIO_WritePin(TRIG_PORT, TRIG_PIN, GPIO_PIN_SET);  // pull the TRIG pin HIGH
-	      __HAL_TIM_SET_COUNTER(&htim1, 0);
-	      while (__HAL_TIM_GET_COUNTER (&htim1) < 10);  // wait for 10 us
-	      HAL_GPIO_WritePin(TRIG_PORT, TRIG_PIN, GPIO_PIN_RESET);  // pull the TRIG pin low
-
-	      pMillis = HAL_GetTick(); // used this to avoid infinite while loop  (for timeout)
-	      // wait for the echo pin to go high
-	      while (!(HAL_GPIO_ReadPin (ECHO_PORT, ECHO_PIN)) && pMillis + 10 >  HAL_GetTick());
-	      Value1 = __HAL_TIM_GET_COUNTER (&htim1);
-
-	      pMillis = HAL_GetTick(); // used this to avoid infinite while loop (for timeout)
-	      // wait for the echo pin to go low
-	      while ((HAL_GPIO_ReadPin (ECHO_PORT, ECHO_PIN)) && pMillis + 50 > HAL_GetTick());
-	      Value2 = __HAL_TIM_GET_COUNTER (&htim1);
-
-	      Distance = (Value2-Value1)* 0.034/2;
-	      sprintf(buffer,"%d\n", Distance);
-	      if(Distance > 50)//no buzzer and no led
-	      {
-				charToTransmit[0] = 48;
-				//char not[] = "NOTHING\r\n";// 48 is ascii character for zero
-				//HAL_UART_Transmit(&huart2, (uint8_t*)not, strlen(not), 100);
-	      }
-	      else if(Distance >10 && Distance <50)// only led
-	      {
-				  charToTransmit[0] = 49;
-				  //char led[] = "LED\r\n";
-				 // HAL_UART_Transmit(&huart2, (uint8_t*)led, strlen(led), 100);
-	      }
-	      else						// only buzzer
-	      {
-	      	      charToTransmit[0] = 50;
-	      	      //char buz[] = "BUZZER\r\n";// 49 is ascii character for one
-	      	      //HAL_UART_Transmit(&huart2, (uint8_t*)buz, strlen(buz), 100);
-	      }
-
-	      HAL_UART_Transmit(&huart1, charToTransmit, 1, 100);
-	      HAL_UART_Transmit(&huart2, buffer, strlen(buffer), 100);
-	      HAL_Delay(400);
-
-
     /* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */ /*
+    /* USER CODE BEGIN 3 */ 
 	  HAL_GPIO_TogglePin(GPIOB,GPIO_PIN_3); // Blink MCU led
 
 
@@ -171,7 +130,7 @@ int main(void)
 	 	  		  }
 
 	 	  	  HAL_UART_Transmit(&huart1, charToTransmit, 1, 100); // Transmit Data
-	 	  	  HAL_Delay(2000);*/
+	 	  	  HAL_Delay(2000);
   }
   /* USER CODE END 3 */
 }
