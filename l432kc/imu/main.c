@@ -89,7 +89,31 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_USART2_UART_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
+   HAL_StatusTypeDef  ret = HAL_I2C_IsDeviceReady(&hi2c1, (0b1101000 << 1)+0,1,100);
+
+ 	  if(ret == HAL_OK)
+ 	  {
+ 		  printf("the device is ready \n");
+ 	  }
+ 	  else
+ 	  {
+ 		  printf("the device is not ready \n");
+ 	  }
+
+ 	  uint8_t temp_data = 8;
+
+ 	  HAL_StatusTypeDef ret1 = HAL_I2C_Mem_Write( &hi2c1, (0b1101000 << 1)+0,27,1, &temp_data,1,100);
+
+ 	  if(ret1 == HAL_OK)
+ 	  	  {
+ 	  		  printf("the gyro is ready \n");
+ 	  	  }
+ 	  	  else
+ 	  	  {
+ 	  		  printf("the gyro is not ready \n");
+ 	  	  }
 
   /* USER CODE END 2 */
 
