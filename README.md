@@ -92,6 +92,7 @@ Key Features of STM32WB55RG
 
 The STM32WB55RG is designed for wireless communication and supports multiple communication standards:
 
+
 ●	Bluetooth 5.0 (BLE): Supports Bluetooth Low Energy (BLE) for low-power wireless communication, making it ideal for applications like smart homes, fitness trackers, and healthcare.
 
 ●	IEEE 802.15.4: Provides support for the Zigbee and Thread protocols, which are widely used in IoT applications for reliable, low-power, and mesh networking. These protocols are used in smart home systems, industrial automation, and sensor networks.
